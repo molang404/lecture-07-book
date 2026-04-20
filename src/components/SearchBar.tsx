@@ -24,7 +24,7 @@ function SearchBar() {
         // search 라고 하는 경로에, query string으로 keyword를 전달해서 사용자 이동
         // 원래 URL은 한글이 X, 영어랑 몇 가지의 특수문자만 가능
         // 해석을 할 수 있도록 영어랑 몇 가지의 특수문자를 이용해 변환 작업이 필요함 -> encodeURIComponent()
-        navigate(`/search?keywords=${encodeURIComponent(keyword)}`);
+        navigate(`/search?keyword=${encodeURIComponent(keyword)}`);
     };
 
     const onChange = (event: ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
