@@ -10,7 +10,9 @@ export type BookItem = {
         title: string;
         authors?: string[];
         description?: string;
+        publisher?: string;
         publishDate: string;
+        pageCount: number;
         imageLinks?: {
             thumbnail?: string;
             small?: string;
