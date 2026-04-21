@@ -4,7 +4,7 @@ import styles from "./Search.module.css"
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
-type BookItem = {
+export type BookItem = {
     id: string;
     volumeInfo: {
         title: string;
@@ -46,7 +46,7 @@ function Search() {
     return (
         <div className={styles.wrap}>
             <h3 className={styles.title}>검색 결과</h3>
-            {list.length === 0 && <div>검색 결과가 없습니다</div>}
+            {/*{list.length === 0 && <div>검색 결과가 없습니다</div>}*/}
             {list.map((value, index) => (
                 <Link key={index} to={`/detail/${value.id}`} className={styles.item}>
                     {value.volumeInfo.imageLinks ? (
