@@ -16,17 +16,18 @@
     padding: 5px 10px;
     margin-bottom: 20px;
     font-size: 10px;
-    border: 1px solid #777;
+    font-weight: bold;
+    border: 1px solid #b3ccde;
     border-radius: 5px;
-    background-color: #ccc;
-    color: #555555;
+    background-color: #d5e7f3;
+    color: #78a5c4;
     outline: none;
 }
 
 .backBtn:hover {
-    background-color: dimgray;
+    background-color: #698a9f;
     color: #fff;
-    border-color: #444;
+    border-color: #435564;
 }
 
 .content {
