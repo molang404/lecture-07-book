@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px 20px;
+    padding: 30px;
     gap: 12px;
 }
 
@@ -31,22 +31,22 @@
 
 .content {
     display: flex;
-    width: 100%;
-    max-width: 600px;
+    width: 100dvh;
     justify-content: space-between;
-    padding: 30px 20px;
+    padding: 30px;
     gap: 30px;
     background-color: aliceblue;
-    border: 1px solid #a4c6dc;
+    border: 2px solid #cce4ef;
     border-radius: 10px;
 }
 
 .cover {
     flex: 1.6;
     object-fit: cover;
-    width: 200px;
+    width: 250px;
     height: 300px;
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 6px 13px 11px -1px #93acbb;;
 }
 
 .noCover {
@@ -61,25 +61,30 @@
 
 .title {
     color: #1c202d;
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .authors {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
     margin-bottom: 10px;
-    color: #475c67;
+    color: #32536b;
 }
 
 .publish {
     list-style: none;
     display: flex;
-
+    margin-bottom: 20px;
+    color: #32536b;
+    font-size: 12px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid rgb(147 187 217 / 0.4);
 }
 
 .desc {
-    margin-top: 60px;
     color: #081d31;
     font-size: 12px;
-    text-align: left;
+    font-weight: 450;
+    line-height: 16px;
 }
