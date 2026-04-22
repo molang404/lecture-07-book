@@ -1,8 +1,59 @@
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
-import styles from "./Search.module.css";
+import styled from "styled-components";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+
+// styled. 으로 연결할 때에는 기본 태그일 때
+const Wrap = styled.div`
+    padding: 30px;
+`;
+
+// styled()로 연결할 때에는 컴포넌트일 때
+// 이 StyleLink는, Link의 기능을 물려 받은 스타일링 적용한 컴포넌트가 됨
+const StyleLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.5s;
+
+    {/* 이건 styled-components의 문법이 아니라,
+        sass (향상된 CSS) 문법임
+     */}
+    &:hover {
+        background-color: #f3f3f3;
+    }
+`;
+
+const Cover = styled.img`
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+`;
+
+const NoCover = styled.div`
+    width: 60px;
+    height: 90px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const Title = styled.div`
+    font-weight: 600;
+    margin-bottom: 4px;
+`;
+
+const Authors = styled.div`
+    font-size: 12px;
+    color: #555;
+`;
 
 export type BookItem = {
     id: string;
@@ -55,36 +106,35 @@ function Search() {
     }, [k]);
 
     return (
-        <div className={styles.wrap}>
+        <Wrap>
             <h3>검색 결과 : {k}</h3>
 
             {/* 검색 결과 (책 목록) 출력 */}
             {/* 데이터가 도착했는지 안 했는지, 목록이 있는지 없는지 판단 해줘야 되나? */}
             {/*{list.length === 0 && <div>검색 결과가 없습니다.</div>}*/}
             {list.map((value, index) => (
-                <Link key={index} to={`/detail/${value.id}`} className={styles.item}>
+                <StyleLink key={index} to={`/detail/${value.id}`}>
                     {value.volumeInfo.imageLinks ? (
-                        <img
+                        <Cover
                             src={value.volumeInfo.imageLinks?.thumbnail}
                             alt={value.volumeInfo.title}
-                            className={styles.cover}
                         />
                     ) : (
-                        <div className={styles.noCover}>No Cover</div>
+                        <NoCover>No Cover</NoCover>
                     )}
                     <div>
-                        <div className={styles.title}>{value.volumeInfo.title}</div>
+                        <Title>{value.volumeInfo.title}</Title>
                         {/*
                             array에서 사용할 수 있는 메소드 join()
                             각 요소를 순회해서 하나의 값을 리턴하는데
                             각 요소 사이애 [매개변수로 제공된 스트링]을 넣어준다.
                         */}
-                        <div className={styles.authors}>{value.volumeInfo.authors?.join(", ")}</div>
+                        <Authors>{value.volumeInfo.authors?.join(", ")}</Authors>
                     </div>
-                </Link>
+                </StyleLink>
             ))}
             {/* map이라고 하는 메소드는 꼭 대상이 array여야만 쓸 수 있음 */}
-        </div>
+        </Wrap>
     );
 }
 
